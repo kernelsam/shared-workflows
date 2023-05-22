@@ -1,0 +1,34 @@
+name: 'shellcheck'
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+  workflow_call:
+    secrets:
+      ghcr-token:
+        required: true
+        description: Github token allowing access to the libraries and ghcr.
+
+
+permissions:
+  contents: read
+
+jobs:
+  runShellCheck:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      - name: Run ShellCheck
+        run: |
+          echo "[INFO] shellcheck version: $(shellcheck --version)"
+          for file in $(find . -type f -name "*.sh"); 
+            do shellcheck --format=gcc $file; 
+          done;
