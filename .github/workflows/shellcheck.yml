@@ -8,10 +8,10 @@ on:
     branches:
       - "master"
   workflow_call:
-    secrets:
-      ghcr-token:
-        required: true
-        description: Github token allowing access to the libraries and ghcr.
+    inputs:
+      enable-shellcheck:
+        required: false
+        type: boolean
 
 
 permissions:
@@ -21,6 +21,7 @@ jobs:
   runShellCheck:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    if: ${{ inputs.enable-shellcheck }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
