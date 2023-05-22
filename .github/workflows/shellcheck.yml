@@ -30,6 +30,12 @@ jobs:
         run: |
           echo "[INFO] shellcheck version: $(shellcheck --version)"
 
+          ###############################################
+          # disable exit on error to allow shellcheck 
+          # to run against all files
+          ###############################################
+          set +e
+
           declare -i status=0
           for file in $(find . -type f -name "*.sh"); 
             do shellcheck --format=gcc $file;
