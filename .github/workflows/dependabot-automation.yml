@@ -1,4 +1,4 @@
-name: Dependabot automation
+name: 'dependabot automation'
 
 on: 
   workflow_call:
@@ -8,6 +8,7 @@ on:
         type: boolean
 
 permissions:
+  contents: write
   pull-requests: write
 
 jobs:
