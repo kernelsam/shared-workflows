@@ -12,7 +12,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  dependabot-auto-approve:
+  dependabot-auto-approve-and-merge:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
