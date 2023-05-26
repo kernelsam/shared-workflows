@@ -6,9 +6,6 @@ on:
       enable-dependabot-automation:
         required: false
         type: boolean
-    secrets:
-      PR_APPROVAL_TOKEN:
-        required: true
 
 permissions:
   contents: write
