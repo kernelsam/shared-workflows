@@ -1,3 +1,5 @@
+---
+
 name: 'dependabot approve and merge patch version prs'
 
 on: 
@@ -22,8 +24,7 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Approve patch version PRs
         if: ${{ steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch' }}
-        run: |
-          gh pr review --approve "$PR_URL" -b "I'm **approving** this pull request because **it includes a patch update**"
+        run: gh pr review --approve "$PR_URL" -b "I'm **approving** this pull request because **it includes a patch update**"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.CODEOWNER_PR_APPROVAL_TOKEN }}
