@@ -1,11 +1,6 @@
 name: 'pylint'
 
-on:
-  workflow_call:
-    inputs:
-      enable-pylint:
-        required: false
-        type: boolean
+on: [workflow_call]
 
 jobs:
   run-pylint:
@@ -20,7 +15,6 @@ jobs:
         python-version: 3.9
     - name: Install dependencies
       run: |
-        sleep 5m
         python -m pip install --upgrade pip
         pip install pylint
         pip install -r requirements.txt
