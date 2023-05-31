@@ -1,3 +1,5 @@
+---
+
 name: 'shellcheck'
 
 on:
@@ -37,10 +39,12 @@ jobs:
           set +e
 
           declare -i status=0
-          for file in $(find . -type f -name "*.sh"); 
-            do shellcheck --format=gcc $file;
+
+          while IFS= read -r -d '' file
+          do 
+            shellcheck --format=gcc "$file";
             status+=$?
-          done;
+          done <   <(find . -type f -name "*.sh")
 
           echo "[INFO] Exit status is: ${status}"
           exit ${status}
