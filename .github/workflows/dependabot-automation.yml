@@ -2,10 +2,6 @@ name: 'dependabot approve and merge patch version prs'
 
 on: 
   workflow_call:
-    inputs:
-      enable-dependabot-automation:
-        required: false
-        type: boolean
     secrets:
       CODEOWNER_PR_APPROVAL_TOKEN:
         required: true
