@@ -32,7 +32,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   add_to_classic_project:
-      name: Add to classic project
       runs-on: ubuntu-latest
       steps:
         - name: Add to classic project
