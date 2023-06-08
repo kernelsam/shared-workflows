@@ -28,7 +28,6 @@ jobs:
         github-token: ${{ secrets.ISSUE_PR_RW_TOKEN }} # requires [project], [read:project] classic access token
 
   add-to-classic-project:
-    name: Add to classic project
     runs-on: ubuntu-latest
     steps:
       if: ${{ inputs.classic }}
