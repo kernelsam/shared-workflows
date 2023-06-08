@@ -12,6 +12,8 @@ on:
 
 #env:
 #  GITHUB_TOKEN: ${{ secrets.ISSUE_PR_RW_TOKEN }}
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   add_to_project:
