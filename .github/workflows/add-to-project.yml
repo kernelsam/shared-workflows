@@ -6,9 +6,12 @@ on:
       project-number:
         required: true
         type: string
+    secrets:
+      ISSUE_PR_RW_TOKEN:
+        required: true
 
 env:
-  GITHUB_TOKEN: ${{ secrets.ISSUE_PR_RW_TOKEN}}
+  GITHUB_TOKEN: ${{ secrets.ISSUE_PR_RW_TOKEN }}
 
 jobs:
   add_to_project:
