@@ -24,3 +24,4 @@ jobs:
         uses: Senzing/github-action-add-issue-to-project@main
         with:
           project: "https://github.com/users/kernelsam/projects/${{inputs.project-number}}"
+          column_name: "Todo"
