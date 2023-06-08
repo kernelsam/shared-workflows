@@ -16,13 +16,8 @@ on: # yamllint disable-line rule:truthy
       ISSUE_PR_RW_TOKEN:
         required: true
 
-#env:
-#  GITHUB_TOKEN: ${{ secrets.ISSUE_PR_RW_TOKEN }}
-# env:
-#  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
-  add_to_project:
+  add-to-project:
     name: Add to project
     runs-on: ubuntu-latest
     steps:
@@ -31,9 +26,9 @@ jobs:
         uses: actions/add-to-project@v0.5.0
         with:
           project-url: "https://github.com/users/kernelsam/projects/${{inputs.project-number}}"
-          github-token: ${{ secrets.ISSUE_PR_RW_TOKEN }}
+          github-token: ${{ secrets.ISSUE_PR_RW_TOKEN }} # requires [project], [read:project] classic access token
 
-  add_to_classic_project:
+  add-to-classic-project:
     runs-on: ubuntu-latest
     steps:
       - name: Add to classic project
