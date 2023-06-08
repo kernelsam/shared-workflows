@@ -6,14 +6,18 @@ on:
       project-number:
         required: true
         type: string
+      classic:
+        required: true
+        type: boolean
+        default: true
 #    secrets:
 #      ISSUE_PR_RW_TOKEN:
 #        required: true
 
 #env:
 #  GITHUB_TOKEN: ${{ secrets.ISSUE_PR_RW_TOKEN }}
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#env:
+#  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   add_to_project:
@@ -21,7 +25,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add to project
-        uses: Senzing/github-action-add-issue-to-project@main
+        if: ${{ ! inputs.classic }}
+        uses: actions/add-to-project@v0.5.0
         with:
           project: "https://github.com/users/kernelsam/projects/${{inputs.project-number}}"
-          #column_name: "Todo"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  add_to_classic_project:
+      name: Add to classic project
+      runs-on: ubuntu-latest
+      steps:
+        - name: Add to classic project
+        if: ${{ inputs.classic }}
+        run: echo "classic"
