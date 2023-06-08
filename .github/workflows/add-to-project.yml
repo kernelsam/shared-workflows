@@ -1,6 +1,8 @@
+---
+
 name: 'add to project'
 
-on: 
+on: # yamllint disable-line rule:truthy
   workflow_call:
     inputs:
       project-number:
@@ -14,9 +16,9 @@ on:
 #      ISSUE_PR_RW_TOKEN:
 #        required: true
 
-#env:
+# env:
 #  GITHUB_TOKEN: ${{ secrets.ISSUE_PR_RW_TOKEN }}
-#env:
+# env:
 #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
@@ -32,8 +34,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   add_to_classic_project:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Add to classic project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add to classic project
         if: ${{ inputs.classic }}
         run: echo "classic"
