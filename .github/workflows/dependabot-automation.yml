@@ -2,7 +2,7 @@
 
 name: 'dependabot approve and merge patch version prs'
 
-on: 
+on:
   workflow_call:
     secrets:
       CODEOWNER_PR_APPROVAL_TOKEN:
