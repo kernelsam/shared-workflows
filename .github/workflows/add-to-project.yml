@@ -30,7 +30,7 @@ jobs:
         if: ${{ ! inputs.classic }}
         uses: actions/add-to-project@v0.5.0
         with:
-          project: "https://github.com/users/kernelsam/projects/${{inputs.project-number}}"
+          project-url: "https://github.com/users/kernelsam/projects/${{inputs.project-number}}"
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   add_to_classic_project:
