@@ -31,5 +31,5 @@ jobs:
     name: Add to classic project
     runs-on: ubuntu-latest
     steps:
-        if: ${{ inputs.classic }}
-        run: echo "classic"
+      if: ${{ inputs.classic }}
+      run: echo "classic"
