@@ -12,11 +12,11 @@ on: # yamllint disable-line rule:truthy
         required: true
         type: boolean
         default: true
-#    secrets:
-#      ISSUE_PR_RW_TOKEN:
-#        required: true
+    secrets:
+      ISSUE_PR_RW_TOKEN:
+        required: true
 
-# env:
+#env:
 #  GITHUB_TOKEN: ${{ secrets.ISSUE_PR_RW_TOKEN }}
 # env:
 #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
         uses: actions/add-to-project@v0.5.0
         with:
           project-url: "https://github.com/users/kernelsam/projects/${{inputs.project-number}}"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.ISSUE_PR_RW_TOKEN }}
 
   add_to_classic_project:
     runs-on: ubuntu-latest
