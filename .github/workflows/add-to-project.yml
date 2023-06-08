@@ -18,7 +18,6 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   add-to-project:
-    name: Add to project
     runs-on: ubuntu-latest
     steps:
       if: ${{ ! inputs.classic }}
