@@ -14,21 +14,17 @@ on: # yamllint disable-line rule:truthy
         default: true
     secrets:
       PROJECT_RW_TOKEN:
-        required: false
+        required: true
 
 jobs:
   add-to-project:
-    permissions:
-      repository-projects: write
-    env:
-      PROJECT_TOKEN: ${{ github.actor == 'dependabot[bot]' && secrets.PROJECT_RW_TOKEN || secrets.GITHUB_TOKEN}}
     runs-on: ubuntu-latest
     steps:
       - if: ${{ ! inputs.classic }}
         uses: actions/add-to-project@v0.5.0
         with:
           project-url: "https://github.com/users/kernelsam/projects/${{inputs.project-number}}"
-          github-token: ${{ env.PROJECT_TOKEN }} # requires [project], [read:project] classic access token
+          github-token: ${{ env.PROJECT_RW_TOKEN }} # requires [project], [read:project] classic access token
 
   add-to-classic-project:
     runs-on: ubuntu-latest
