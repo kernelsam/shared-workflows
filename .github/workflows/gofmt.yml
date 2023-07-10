@@ -1,0 +1,13 @@
+---
+
+name: 'gofmt'
+
+on: [workflow_call]
+
+jobs:
+    gofmt:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: gofmt
+              run: if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then exit 1; fi
