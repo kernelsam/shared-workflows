@@ -19,7 +19,7 @@ jobs:
         run: |
           gofmt_out="$(gofmt -s -l .)"
           echo ${gofmt_out}
-          if [ ! -z ${gofmt_out} ]; then
+          if [ ! -z "${gofmt_out}" ]; then
             echo "[ERROR] Files failing gofmt: "
             echo "${gofmt_out}"
             exit 1;
