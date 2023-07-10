@@ -22,4 +22,6 @@ jobs:
             echo "[ERROR] Files failing gofmt: "
             echo "${gofmt_out}"
             exit 1;
+          else
+            echo "[INFO] gofmt check passed."
           fi
