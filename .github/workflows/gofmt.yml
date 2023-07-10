@@ -18,7 +18,6 @@ jobs:
       - name: gofmt
         run: |
           gofmt_out="$(gofmt -s -l .)"
-          echo "${gofmt_out}"
           if [ -n "${gofmt_out}" ]; then
             echo "[ERROR] Files failing gofmt: "
             echo "${gofmt_out}"
